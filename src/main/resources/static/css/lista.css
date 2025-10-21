@@ -1,0 +1,76 @@
+/* --- ESTILOS PARA LISTA.HTML --- */
+
+/* 1. Importar la fuente (si aún no la importas globalmente) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+/* 2. Estilo del Body (Fondo y Fuente) */
+body {
+    font-family: 'Montserrat', sans-serif;
+
+    /* ¡Asegúrate de usar la misma imagen que en tu index! */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/surgery-1807541.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* Color de texto claro por defecto para que contraste */
+    color: #f8f9fa; /* (Un gris casi blanco de Bootstrap) */
+}
+
+/* 3. Título de la página */
+.page-title {
+    color: #FFFFFF;
+}
+
+/* 4. Tarjetas de Estadísticas (Efecto Glass) */
+.stat-card .card-body {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    border-radius: .375rem; /* (Bootstrap's default card radius) */
+}
+
+/* 5. Tarjeta principal (la que contiene la tabla) */
+.card.shadow-sm {
+    background-color: rgba(33, 37, 41, 0.07); /* Un fondo oscuro translúcido */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 6. Estilo de la Tabla */
+.table {
+    /* Le decimos a la tabla que use los colores de fuente del body */
+    color: inherit;
+    border-color: rgba(255, 255, 255, 0.2); /* Borde claro */
+}
+
+/* Cabecera de la tabla */
+.table thead.table-light th {
+    background-color: rgba(255, 255, 255, 0.06);
+    color: rgb(255, 255, 255);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Hover de las filas de la tabla */
+.table-hover > tbody > tr:hover > * {
+    /* Un hover oscuro pero más notable */
+    background-color: rgba(255, 255, 255, 0.43);
+    color: rgb(255, 255, 255);
+}
+
+/* 7. Botones (para que coincidan con tu paleta) */
+.btn-primary {
+    background-color: #6b8f71; /* El verde azulado que usamos */
+    border-color: #aad2ba;
+}
+
+.btn-primary:hover {
+    background-color: #aad2ba; /* Un tono más oscuro para el hover */
+    border-color: #6b8f71;
+}
+
+/* 8. Badges (Insignias) */
+.badge.bg-info {
+    background-color: #6b8f71 !important; /* Fuerza el color de tu paleta */
+}
