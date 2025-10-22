@@ -3,12 +3,32 @@
 /* 1. Importar la fuente (si aún no la importas globalmente) */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
 
+:root{
+    --clr-1:#BBDB9B; /* accent */
+    --clr-2:#ABC4A1; /* primary */
+    --clr-3:#9DB4AB; /* secondary */
+    --clr-4:#8D9D90; /* muted */
+    --clr-5:#878E76; /* neutral-700 */
+
+    --bg:#f7f8f6;
+    --surface:#ffffff;
+    --text:#1a1a1a;
+    --text-muted:#5b5f55;
+
+    --border: rgb(231, 235, 227);
+    --radius:16px;
+    --shadow:0 8px 24px rgba(0,0,0,.08);
+    --ring:0 0 0 3px rgba(157,180,171,.35);
+}
+
+
+
 /* 2. Estilo del Body (Fondo y Fuente) */
 body {
     font-family: 'Montserrat', sans-serif;
 
     /* ¡Asegúrate de usar la misma imagen que en tu index! */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/surgery-1807541.jpg');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), url('/images/surgery-1807541.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -18,59 +38,126 @@ body {
     color: #f8f9fa; /* (Un gris casi blanco de Bootstrap) */
 }
 
-/* 3. Título de la página */
-.page-title {
-    color: #FFFFFF;
+/* ===== Encabezado ===== */
+.page-title{
+    display:flex; align-items:center; gap:.5rem;
+    font-weight:800; color:#0f1a12; margin:0;
+}
+.page-title .bi{ color:var(--clr-3); }
+
+/* ===== Botón principal (override Bootstrap) ===== */
+.btn-primary{
+    --bs-btn-bg: var(--clr-2);
+    --bs-btn-border-color: var(--clr-2);
+    --bs-btn-hover-bg: var(--clr-3);
+    --bs-btn-hover-border-color: var(--clr-3);
+    --bs-btn-color: #0f1a12;
+    --bs-btn-hover-color:#0f1a12;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
-/* 4. Tarjetas de Estadísticas (Efecto Glass) */
-.stat-card .card-body {
-    background-color: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 0, 0, 0.09);
-    border-radius: .375rem; /* (Bootstrap's default card radius) */
+/* ===== Tarjetas de estadísticas ===== */
+.stat-card{
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    background: linear-gradient(135deg, var(--clr-2), var(--clr-3));
+}
+.stat-card .card-body h3{
+    margin:0 0 .25rem 0; font-weight:800; letter-spacing:.5px;
+}
+.stat-card p{ margin:0; opacity:.95; }
+
+/* ===== Card contenedora de la tabla ===== */
+.card.shadow-sm{
+    border:1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow) !important;
 }
 
-/* 5. Tarjeta principal (la que contiene la tabla) */
-.card.shadow-sm {
-    background-color: rgba(33, 37, 41, 0.07); /* Un fondo oscuro translúcido */
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+/* ===== Tabla ===== */
+.table{
+    margin:0;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.table thead.table-light{
+    --bs-table-color: #0f1a12;
+    --bs-table-bg: color-mix(in srgb, var(--clr-3) 22%, #fff);
+    --bs-table-border-color: var(--border);
+}
+.table tbody tr td{
+    border-top:1px solid var(--border);
+}
+.table-hover tbody tr:hover{
+    background: color-mix(in srgb, var(--clr-2) 10%, #fff);
 }
 
-/* 6. Estilo de la Tabla */
-.table {
-    /* Le decimos a la tabla que use los colores de fuente del body */
-    color: inherit;
-    border-color: rgba(255, 255, 255, 0.2); /* Borde claro */
+/* Columna # */
+.table td.fw-bold{ color: #000000; }
+
+/* Ubicación */
+.table td .bi-geo-alt-fill{ color: var(--clr-3) !important; }
+
+/* ===== Badges ===== */
+/* Categoría (bg-info en Bootstrap) → color de paleta */
+.badge.bg-info{
+    background-color: var(--clr-3) !important;
+    color:#0e1512;
+    border: 1px solid color-mix(in srgb, var(--clr-3) 55%, #0000);
 }
 
-/* Cabecera de la tabla */
-.table thead.table-light th {
-    background-color: rgba(255, 255, 255, 0.06);
-    color: rgb(255, 255, 255);
-    border-color: rgba(255, 255, 255, 0.2);
+/* ID Historia Clínica (bg-dark) suavizado */
+.badge.bg-dark{
+    background: var(--clr-5) !important;
+    color:#fff;
+    border: 1px solid color-mix(in srgb, var(--clr-5) 55%, #0000);
 }
 
-/* Hover de las filas de la tabla */
-.table-hover > tbody > tr:hover > * {
-    /* Un hover oscuro pero más notable */
-    background-color: rgba(255, 255, 255, 0.43);
-    color: rgb(255, 255, 255);
+/* Estados: respetamos success/danger por semántica y contraste,
+   pero los agrandamos y redondeamos para que queden lindos con la paleta */
+.badge.fs-6{
+    padding:.35rem .6rem;
+    border-radius: 999px;
+    font-weight: 700;
 }
 
-/* 7. Botones (para que coincidan con tu paleta) */
-.btn-primary {
-    background-color: #6b8f71; /* El verde azulado que usamos */
-    border-color: #aad2ba;
+/* ===== Grupo de acciones ===== */
+.btn-group .btn{
+    border-radius: 12px !important;
+}
+.btn-outline-primary{
+    --bs-btn-color: var(--clr-3);
+    --bs-btn-border-color: var(--clr-3);
+    --bs-btn-hover-bg: var(--clr-2);
+    --bs-btn-hover-border-color: var(--clr-2);
+    --bs-btn-hover-color:#0f1a12;
+}
+.btn-outline-warning{
+    --bs-btn-color: #7a5d00;
+    --bs-btn-border-color: #e7c06a;
+    --bs-btn-hover-bg: #e7c06a;
+    --bs-btn-hover-border-color: #e7c06a;
+    --bs-btn-hover-color:#0f1a12;
 }
 
-.btn-primary:hover {
-    background-color: #aad2ba; /* Un tono más oscuro para el hover */
-    border-color: #6b8f71;
+/* ===== Mensaje vacío ===== */
+.text-muted{ color: var(--text-muted) !important; }
+.empty-icon{ color:#b9bfb6; }
+.text-center .btn.btn-primary{
+    border-radius: var(--radius);
 }
 
-/* 8. Badges (Insignias) */
-.badge.bg-info {
-    background-color: #6b8f71 !important; /* Fuerza el color de tu paleta */
+/* ===== Focus visible (accesibilidad) ===== */
+:focus-visible{
+    outline: none !important;
+    box-shadow: var(--ring) !important;
+    transition: box-shadow .2s ease;
+}
+
+/* ===== Pequeños ajustes responsivos ===== */
+@media (max-width: 576px){
+    .page-title{ font-size:1.25rem; }
+    .btn-lg{ padding:.6rem .9rem; font-size:1rem; }
 }
