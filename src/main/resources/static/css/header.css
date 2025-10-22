@@ -9,7 +9,6 @@ body{
 nav.navbar .navbar-nav .nav-link {
     position: relative; /* Necesario para el pseudo-elemento ::after */
     padding-bottom: 5px; /* Da espacio para la línea */
-    background: #6b8f71;
 }
 
 /* Esta es la línea de subrayado, oculta por defecto */
