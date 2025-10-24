@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+
+.body-index{
+    background-image: linear-gradient(rgba(255,255,255,0.78), rgba(1,1,1,0.73)), url('/images/surgery-1807541.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #4f6c53;
+}
+
+.container .lead {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #436749;
+}
+
+.animated-text-container h1 {
+    animation: fadeInDown 1s ease;
+}
+
+.animated-text-container p {
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 2.2s ease;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px); /* Efecto de cristal esmerilado (opcional) */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.btn-outline-primary,
+.btn-outline-success,
+.btn-outline-info {
+    background-color: rgb(170, 210, 186) !important;
+    border: 2px solid rgb(170, 210, 186) !important;
+    color: #6b8f71 !important;
+    font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+    background-color: rgb(107, 143, 113) !important;
+    border-color: #aad2ba !important;
+    color: #aad2ba !important;
+}
+
+.btn-outline-success:hover {
+    background-color: rgb(107, 143, 113) !important;
+    border-color: #aad2ba !important;
+    color: #aad2ba !important;
+}
+
+.btn-info:hover {
+    background-color: rgb(217, 255, 245) !important;
+    border-color: #aad2ba !important;
+    color: #6b8f71 !important;
+}
+
+.btn-primary{
+    background-color: rgb(107, 143, 113) !important;
+    border-color: #aad2ba !important;
+    color: #aad2ba !important;
+}
+
+.btn-primary:hover{
+    background-color: rgb(217, 255, 245) !important;
+    border-color: #aad2ba !important;
+    color: #6b8f71 !important;
+}
+
+.btn-success{
+    background-color: rgb(107, 143, 113) !important;
+    border-color: #aad2ba !important;
+    color: #aad2ba !important;
+}
+
+.btn-success:hover{
+    background-color: rgb(217, 255, 245) !important;
+    border-color: #aad2ba !important;
+    color: #6b8f71 !important;
+}
+
+.btn-info{
+    background-color: rgb(107, 143, 113) !important;
+    border-color: #aad2ba !important;
+    color: #aad2ba !important;
+}
