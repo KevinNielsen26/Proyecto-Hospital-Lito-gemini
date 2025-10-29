@@ -1,0 +1,238 @@
+/* --- ESTILOS PARA LISTA.HTML --- */
+
+/* 1. Importar la fuente (si aún no la importas globalmente) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+:root{
+    --clr-1:#BBDB9B; /* accent */
+    --clr-2:#ABC4A1; /* primary */
+    --clr-3:#9DB4AB; /* secondary */
+    --clr-4:#8D9D90; /* muted */
+    --clr-5:#878E76; /* neutral-700 */
+
+    --bg:#f7f8f6;
+    --surface:#ffffff;
+    --text:#1a1a1a;
+    --text-muted:#5b5f55;
+
+    --border: rgb(231, 235, 227);
+    --radius:16px;
+    --shadow:0 8px 24px rgba(0,0,0,.08);
+    --ring:0 0 0 3px rgba(157,180,171,.35);
+}
+
+
+
+/* 2. Estilo del Body (Fondo y Fuente) */
+body {
+    font-family: 'Montserrat', sans-serif;
+
+    /* ¡Asegúrate de usar la misma imagen que en tu index! */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), url('/images/surgery-1807541.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* Color de texto claro por defecto para que contraste */
+    color: #f8f9fa; /* (Un gris casi blanco de Bootstrap) */
+}
+
+/* ===== Encabezado ===== */
+.page-title{
+    display:flex; align-items:center; gap:.5rem;
+    font-weight:800; color:#0f1a12; margin:0;
+}
+.page-title .bi{ color:var(--clr-3); }
+
+/* ===== Botón principal (override Bootstrap) ===== */
+.btn-primary{
+    --bs-btn-bg: var(--clr-2);
+    --bs-btn-border-color: var(--clr-2);
+    --bs-btn-hover-bg: var(--clr-3);
+    --bs-btn-hover-border-color: var(--clr-3);
+    --bs-btn-color: #0f1a12;
+    --bs-btn-hover-color:#0f1a12;
+    --bs-btn-active-bg: #ABC4A1;
+    --bs-btn-active-border-color: #ABC4A1;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.btn-success{
+    --bs-btn-bg: var(--clr-2);
+        --bs-btn-border-color: var(--clr-2);
+        --bs-btn-hover-bg: var(--clr-3);
+        --bs-btn-hover-border-color: var(--clr-3);
+        --bs-btn-color: #0f1a12;
+        --bs-btn-hover-color:#0f1a12;
+        --bs-btn-active-bg: #ABC4A1;
+        --bs-btn-active-border-color: #ABC4A1;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+
+}
+
+/* ===== Tarjetas de estadísticas ===== */
+.stat-card{
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    background: linear-gradient(135deg, var(--clr-2), var(--clr-3));
+}
+.stat-card .card-body h3{
+    margin:0 0 .25rem 0; font-weight:800; letter-spacing:.5px;
+}
+.stat-card p{ margin:0; opacity:.95; }
+
+/* ===== Card contenedora de la tabla ===== */
+.card.shadow-sm{
+    border:1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow) !important;
+}
+
+/* ===== Tabla ===== */
+.table{
+    margin:0;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.table thead.table-light{
+    --bs-table-color: #0f1a12;
+    --bs-table-bg: color-mix(in srgb, var(--clr-3) 22%, #fff);
+    --bs-table-border-color: var(--border);
+}
+.table tbody tr td{
+    border-top:1px solid var(--border);
+}
+.table-hover tbody tr:hover{
+    background: color-mix(in srgb, var(--clr-2) 10%, #fff);
+}
+
+/* Columna # */
+.table td.fw-bold{ color: #000000; }
+
+/* Ubicación */
+.table td .bi-geo-alt-fill{ color: var(--clr-3) !important; }
+
+.table td .bi-person-circle{ color: var(--clr-3) !important; }
+
+
+/* ===== Badges ===== */
+/* Categoría (bg-info en Bootstrap) → color de paleta */
+.badge.bg-info{
+    background-color: var(--clr-3) !important;
+    color:#0e1512;
+    border: 1px solid color-mix(in srgb, var(--clr-3) 55%, #0000);
+}
+
+/* ID Historia Clínica (bg-dark) suavizado */
+.badge.bg-dark{
+    background: var(--clr-5) !important;
+    color:#fff;
+    border: 1px solid color-mix(in srgb, var(--clr-5) 55%, #0000);
+}
+
+.badge.bg-secondary{
+    background-color: var(--clr-3) !important;
+        color:#0e1512;
+        border: 1px solid color-mix(in srgb, var(--clr-3) 55%, #0000);
+}
+
+/* Estados: respetamos success/danger por semántica y contraste,
+   pero los agrandamos y redondeamos para que queden lindos con la paleta */
+.badge.fs-6{
+    padding:.35rem .6rem;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+/* ===== Grupo de acciones ===== */
+.btn-group .btn{
+    border-radius: 12px !important;
+}
+.btn-outline-primary{
+    --bs-btn-color: var(--clr-3);
+    --bs-btn-border-color: var(--clr-3);
+    --bs-btn-hover-bg: var(--clr-2);
+    --bs-btn-hover-border-color: var(--clr-2);
+    --bs-btn-hover-color:#0f1a12;
+}
+.btn-outline-secondary {
+           --bs-btn-bg: var(--clr-2);
+           --bs-btn-border-color: var(--clr-2);
+           --bs-btn-hover-bg: var(--clr-3);
+           --bs-btn-hover-border-color: var(--clr-3);
+           --bs-btn-color: #0f1a12;
+           --bs-btn-hover-color: #0f1a12;
+           --bs-btn-active-bg: #ABC4A1;
+           --bs-btn-active-border-color: #ABC4A1;
+           border-radius: var(--radius);
+           box-shadow: var(--shadow);
+}
+
+.btn-outline-warning{
+    --bs-btn-color: #7a5d00;
+    --bs-btn-border-color: #e7c06a;
+    --bs-btn-hover-bg: #e7c06a;
+    --bs-btn-hover-border-color: #e7c06a;
+    --bs-btn-hover-color:#0f1a12;
+}
+.btn-outline-info{
+    --bs-btn-color: var(--clr-3);
+        --bs-btn-border-color: var(--clr-3);
+        --bs-btn-hover-bg: var(--clr-2);
+        --bs-btn-hover-border-color: var(--clr-2);
+        --bs-btn-hover-color:#0f1a12;
+            --bs-btn-active-bg: #BBDB9B;
+            --bs-btn-active-border-color: #BBDB9B;
+}
+
+.btn-info{
+     --bs-btn-bg: var(--clr-2);
+            --bs-btn-border-color: var(--clr-2);
+            --bs-btn-hover-bg: var(--clr-3);
+            --bs-btn-hover-border-color: var(--clr-3);
+            --bs-btn-color: #0f1a12;
+            --bs-btn-hover-color:#0f1a12;
+            --bs-btn-active-bg: #ABC4A1;
+            --bs-btn-active-border-color: #ABC4A1;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+}
+
+
+.text-success {
+    --bs-text-opacity: 1;
+    color: #6b8f71 !important;
+}
+
+/* ===== Mensaje vacío ===== */
+.text-muted{ color: var(--text-muted) !important; }
+.empty-icon{ color:#b9bfb6; }
+.text-center .btn.btn-primary{
+    border-radius: var(--radius);
+}
+
+/* ===== Focus visible (accesibilidad) ===== */
+:focus-visible{
+    outline: none !important;
+    box-shadow: var(--ring) !important;
+    transition: box-shadow .2s ease;
+}
+
+/* ===== Pequeños ajustes responsivos ===== */
+@media (max-width: 576px){
+    .page-title{ font-size:1.25rem; }
+    .btn-lg{ padding:.6rem .9rem; font-size:1rem; }
+}
+
+.bg-success{
+        background: linear-gradient(135deg, var(--clr-2), var(--clr-3)) !important;
+        color: #0f1a12 !important;
+        border-bottom: 1px solid var(--border);
+        border-top-left-radius: var(--radius);
+        border-top-right-radius: var(--radius);
+}
+

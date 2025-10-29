@@ -1,0 +1,30 @@
+/* --- OPCIÓN 2: Animación "Underline" --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+nav.navbar .navbar-nav .nav-link {
+    position: relative; /* Necesario para el pseudo-elemento ::after */
+    padding-bottom: 5px; /* Da espacio para la línea */
+}
+
+/* Esta es la línea de subrayado, oculta por defecto */
+nav.navbar .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Empieza en el centro */
+    width: 0%; /* Empieza sin ancho */
+    height: 2px; /* Grosor de la línea */
+    background-color: #6B8F71FF; /* Color de la línea (blanco) */
+    transition: all 0.3s ease-out;
+    transform: translateX(-50%); /* Centra la línea */
+}
+
+/* Cuando el cursor está encima, la línea crece al 100% */
+nav.navbar .navbar-nav .nav-link:hover::after {
+    width: 100%;
+}

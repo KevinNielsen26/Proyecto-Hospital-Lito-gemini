@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Asignación - Hospital Lito</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/formulario-cama.css}">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<!-- Header -->
+<div th:replace="~{fragmentos/header :: navbar}"></div>
+
+<!-- Contenido -->
+<div class="flex-grow-1 content-wrapper">
+    <div class="container mt-4">
+
+        <!-- Mensajes -->
+        <div th:replace="~{fragmentos/messages :: alert_messages}"></div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">
+                            <i class="bi bi-link-45deg"></i> Asignar Enfermera a Cama
+                        </h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <form th:action="@{/asignaciones/guardar}" method="post">
+
+                            <!-- Seleccionar Cama -->
+                            <div class="mb-4">
+                                <label for="idCama" class="form-label fw-bold">
+                                    <i class="bi bi-bed-fill"></i> Cama *
+                                </label>
+                                <select class="form-select form-select-lg" id="idCama" name="idCama" required>
+                                    <option value="">-- Seleccione una cama --</option>
+                                    <option th:each="cama : ${camas}"
+                                            th:value="${cama.idCama}"
+                                            th:text="${cama.ubicacion} + ' - ' + ${cama.categoria.descripcion} +
+                                                     ' (' + ${cama.estado} + ')'">
+                                    </option>
+                                </select>
+                                <div class="form-text">
+                                    <i class="bi bi-info-circle"></i> Seleccione la cama que desea asignar
+                                </div>
+                            </div>
+
+                            <!-- Seleccionar Enfermera -->
+                            <div class="mb-4">
+                                <label for="idEnfermera" class="form-label fw-bold">
+                                    <i class="bi bi-person-badge-fill"></i> Enfermera *
+                                </label>
+                                <select class="form-select form-select-lg" id="idEnfermera" name="idEnfermera" required>
+                                    <option value="">-- Seleccione una enfermera --</option>
+                                    <option th:each="enfermera : ${enfermeras}"
+                                            th:value="${enfermera.idEnfermera}"
+                                            th:text="${enfermera.nombre} + ' ' + ${enfermera.apellido} +
+                                                     ' (Legajo: ' + ${enfermera.legajo} + ')'">
+                                    </option>
+                                </select>
+                                <div class="form-text">
+                                    <i class="bi bi-info-circle"></i> Solo se muestran enfermeras activas
+                                </div>
+                            </div>
+
+                            <!-- Botones -->
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                <a href="/camas" class="btn btn-secondary btn-lg">
+                                    <i class="bi bi-x-circle"></i> Cancelar
+                                </a>
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-check-circle-fill"></i> Asignar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Información adicional -->
+                <div class="alert alert-info mt-4" role="alert">
+                    <div class="card-body">
+                        <h6 class="alert-heading">
+                            <i class="bi bi-info-circle-fill"></i> Reglas de Asignación
+                        </h6>
+                        <ul class="mb-0 small">
+                            <li>Una enfermera puede estar asignada a un máximo de <strong>8 camas</strong></li>
+                            <li>Una cama puede tener asignadas múltiples enfermeras según su categoría</li>
+                            <li>Solo se pueden asignar enfermeras con estado <strong>Activo</strong></li>
+                            <li>El sistema validará automáticamente estas reglas al guardar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{fragmentos/footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Enfermera - Hospital Lito</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/formulario-cama.css}">
+    <link rel="stylesheet" th:href="@{/css/lista.css}">
+
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<!-- Header -->
+<div th:replace="~{fragmentos/header :: navbar}"></div>
+
+<!-- Contenido -->
+<div class="flex-grow-1 content-wrapper">
+    <div class="container mt-4">
+
+        <!-- Mensajes -->
+        <div th:replace="~{fragmentos/messages :: alert_messages}"></div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0">
+                            <i class="bi bi-person-plus-fill"></i> Registrar Nueva Enfermera
+                        </h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <form th:action="@{/enfermeras/guardar}" th:object="${enfermera}" method="post">
+
+                            <!-- Nombre -->
+                            <div class="mb-4">
+                                <label for="nombre" class="form-label fw-bold">
+                                    <i class="bi bi-person-fill"></i> Nombre *
+                                </label>
+                                <input type="text"
+                                       class="form-control form-control-lg"
+                                       id="nombre"
+                                       th:field="*{nombre}"
+                                       placeholder="Ingrese el nombre"
+                                       required
+                                       autofocus>
+                                <div class="form-text">
+                                    <i class="bi bi-info-circle"></i> Nombre de la enfermera
+                                </div>
+                            </div>
+
+                            <!-- Apellido -->
+                            <div class="mb-4">
+                                <label for="apellido" class="form-label fw-bold">
+                                    <i class="bi bi-person-fill"></i> Apellido *
+                                </label>
+                                <input type="text"
+                                       class="form-control form-control-lg"
+                                       id="apellido"
+                                       th:field="*{apellido}"
+                                       placeholder="Ingrese el apellido"
+                                       required>
+                                <div class="form-text">
+                                    <i class="bi bi-info-circle"></i> Apellido de la enfermera
+                                </div>
+                            </div>
+
+                            <!-- Legajo -->
+                            <div class="mb-4">
+                                <label for="legajo" class="form-label fw-bold">
+                                    <i class="bi bi-card-text"></i> Legajo *
+                                </label>
+                                <input type="text"
+                                       class="form-control form-control-lg"
+                                       id="legajo"
+                                       th:field="*{legajo}"
+                                       placeholder="Ej: ENF001"
+                                       required>
+                                <div class="form-text">
+                                    <i class="bi bi-info-circle"></i> Código único de identificación (debe ser único)
+                                </div>
+                                <div th:if="${exito}" class="alert alert-success" th:text="${exito}"></div>
+                                <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+                            </div>
+
+                            <!-- Estado (Activa) -->
+                            <div class="mb-4">
+                                <div class="form-check form-switch d-flex flex-column align-items-start ps-0">
+                                    <label class="form-check-label fw-bold mb-2 ps-0" for="activa">
+                                        <i class="bi bi-toggle-on"></i> Enfermera Activa
+                                    </label>
+                                    <input class="form-check-input ms-0"
+                                           type="checkbox"
+                                           id="activa"
+                                           th:field="*{activa}"
+                                           checked>
+                                </div>
+                                <small class="text-muted">
+                                    Solo las enfermeras activas pueden ser asignadas a camas
+                                </small>
+                            </div>
+
+                            <!-- Botones -->
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                <a href="/enfermeras" class="btn btn-secondary btn-lg">
+                                    <i class="bi bi-x-circle"></i> Cancelar
+                                </a>
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="bi bi-save-fill"></i> Guardar Enfermera
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Información adicional -->
+                <div class="alert alert-info mt-4" role="alert">
+                    <div class="card-body">
+                        <h6 class="alert-heading">
+                            <i class="bi bi-info-circle-fill"></i> Información Importante
+                        </h6>
+                        <ul class="mb-0 small">
+                            <li>El legajo debe ser único en el sistema</li>
+                            <li>Una enfermera puede atender un máximo de 8 camas simultáneamente</li>
+                            <li>Solo enfermeras activas pueden ser asignadas a camas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{fragmentos/footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
