@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+:root {
+    --clr-1: #BBDB9B;
+    --clr-2: #ABC4A1;
+    --clr-3: #9DB4AB;
+    --clr-4: #8D9D90;
+    --clr-5: #878E76;
+    --bg: #f7f8f6;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #5b5f55;
+    --border: rgb(231, 235, 227);
+    --radius: 16px;
+    --shadow: 0 8px 24px rgba(0, 0, 0, .08);
+    --ring: 0 0 0 3px rgba(157, 180, 171, .35);
+}
+
+body.camas{
+    background-image: linear-gradient(rgba(255,255,255,0.78), rgba(1,1,1,0.73)), url('/images/surgery-1807541.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+div.info-enfermeras{
+    border-opacity: 1;
+    border-color: #ffffff !important
+}

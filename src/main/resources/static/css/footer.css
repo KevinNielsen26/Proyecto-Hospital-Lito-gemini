@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+/* --- Estilos del Footer --- */
+
+footer {
+    backdrop-filter: blur(6px);
+}
+
+/* Contenedor para las columnas de datos */
+.footer-container {
+    display: flex;
+    justify-content: space-around; /* Distribuye las columnas */
+    flex-wrap: wrap; /* Permite que se apilen en móviles */
+    max-width: 1000px; /* Ancho máximo */
+    margin: 0 auto 30px auto; /* Centra el contenedor */
+    gap: 20px; /* Espacio entre columnas */
+}
+
+/* Estilo para cada sección (Contacto y Técnicos) */
+.footer-seccion {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 250px; /* Ancho mínimo antes de apilarse */
+    padding-bottom: 0;
+}
+
+.footer-seccion h3 {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Línea sutil bajo el título */
+    padding-top: 15px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.footer-seccion p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: rgb(171, 196, 161);
+}
+
+/* Quita los puntos de la lista de técnicos */
+.footer-seccion ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-seccion li {
+    margin-bottom: 8px;
+    color: rgb(171, 196, 161);
+}
+
+/* Estilo para el link del email */
+.footer-seccion a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-seccion a:hover {
+    text-decoration: underline;
+}
+
+/* --- Parte inferior (Copyright) --- */
+
+.footer-bottom {
+    text-align: center; /* Centra el texto */
+    padding-top: 1px;
+}
+
+/* Estilo de la línea horizontal (como en tu imagen) */
+.footer-bottom hr {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 60%; /* Ancho de la línea */
+    margin: 0 auto 15px auto; /* Centra la línea */
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 1.0em;
+    color: rgba(255, 255, 255, 0.8);
+    padding-bottom: 20px;
+}
